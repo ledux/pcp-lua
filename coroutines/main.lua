@@ -1,4 +1,5 @@
 producer = coroutine.create(function (workload) 
+      -- der zustand der variable bleibt bestehen bei aufruf von yield
       produceCounter = 10
       
       while(produceCounter > 0)
@@ -20,6 +21,7 @@ consumer = coroutine.create(function (workload)
         print("do some work")
         workload.counter = workload.counter - 1 
         
+        -- coroutine kann einen wert zurückliefern
         coroutine.yield("current workload: " .. workload.counter)
       end
       
@@ -33,13 +35,13 @@ starter = function()
 
   while(coroutine.status(consumer) ~= "dead")
         do
-          
           coroutine.resume(producer, workload)
-          _, value = coroutine.resume(consumer, workload)
+          _, message_from_coroutine = coroutine.resume(consumer, workload)
           
-          if value ~= nil then
-            print(value)
-          end
+          -- resume liefert nil, wenn sie beendet wird
+          --if message_from_coroutine ~= nil then
+            print(message_from_coroutine or "")
+          --end
         end
   end
   

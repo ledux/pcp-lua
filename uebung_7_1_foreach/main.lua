@@ -1,8 +1,5 @@
-function getCustomArray()
+function createArray()
   local table = {}
-  table[1] = "test1"
-  table[2] = "test2"
-  table[3] = "test3"
   
   function table:foreach(func)
     for key, value in pairs(self) do
@@ -16,7 +13,10 @@ function getCustomArray()
 end
 
 
-local array = getCustomArray()
-
+local array = createArray()
+  array[1] = "test1"
+  array[2] = "test2"
+  array[3] = "test3"
+  
 array:foreach(function(key, value) print(value) end)
 

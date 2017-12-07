@@ -8,24 +8,9 @@ end
 
 local add = infix(function(a, b) return a + b end)
 
-local result = (5 -add- 4) * 2
-print(result)
+(5 -add- 4) * 2
 
 
-function hello()
-  error("test1", 2)
-  print("test2")
-end
-
-function hello2()
-  hello()
-end
-
-function hello3()
-  hello2()
-end
-
-hello2()
 
 
 
