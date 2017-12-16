@@ -19,7 +19,8 @@ function process_delete()
 end
 
 function process_list()
-    print('My Phonebook')
+    io.write('Name\t\tNumber\n')
+    io.write('----\t\t ------\n')
     for name,number in pairs(phonebook) do
         io.write(name .. '\t\t' .. number .. '\n')
         io.flush()
@@ -34,8 +35,11 @@ function process_search()
 end
 
 function show_help(command)
+    io.write('\n')
+    io.write('  COMMANDS\n')
     io.write('add\tAdd new entry\n')
     io.write('del\tDelete an entry\n')
+    io.write('search\tSearch for an entry\n')
     io.write('list\tList all entries\n')
     io.write('help\tShow this help\n')
 end
