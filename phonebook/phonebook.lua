@@ -20,7 +20,7 @@ end
 
 function process_list()
     print('My Phonebook')
-    for name,number in ipairs(phonebook) do
+    for name,number in pairs(phonebook) do
         io.write(name .. '\t\t' .. number .. '\n')
         io.flush()
     end   
