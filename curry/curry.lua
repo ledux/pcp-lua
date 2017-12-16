@@ -21,3 +21,5 @@ for idx,val in ipairs(factors) do
 end
 
 print(f())
+
+print(multiplicate (4) (3) (8) (2) ())
