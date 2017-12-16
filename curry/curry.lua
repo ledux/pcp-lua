@@ -14,12 +14,26 @@ function multiplicate(factor)
     return mul(factor)
 end
 
+function curry(func)
+    return function (param1)
+        return function (param2)
+            return func(param1, param2)
+        end
+    end
+end
+
 result = 0
 f = multiplicate
 for idx,val in ipairs(factors) do
     f = f(val)
 end
 
-print(f())
+print('multiplicate all in a table: ' .. f())
 
-print(multiplicate (4) (3) (8) (2) ())
+print('multiplicate in a row: ' .. multiplicate (4) (3) (8) (2) ())
+
+multi = curry(function(a, b) return a * b end)
+print('mulitplicate with curried: ' .. multi(2)(3))
+
+multi_by_four = multi(4)
+print('multiplicate by precurried function: ' .. multi_by_four(3))
