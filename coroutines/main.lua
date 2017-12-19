@@ -38,10 +38,8 @@ starter = function()
           coroutine.resume(producer, workload)
           _, message_from_coroutine = coroutine.resume(consumer, workload)
           
-          -- resume liefert nil, wenn sie beendet wird
-          --if message_from_coroutine ~= nil then
             print(message_from_coroutine or "")
-          --end
+            
         end
   end
   

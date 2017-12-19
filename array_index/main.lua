@@ -10,9 +10,10 @@ end
 ---------------------------------
 ---- for !! index beginnt bei 1
 ----------------------------------
-for i = 0, 4, 1 do
+for i = 0, 3, 1 do
   
   io.write("index " .. i .. ": ")
   io.write(temp[i] or "null")
   print()
 end
+
